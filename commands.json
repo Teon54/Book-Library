@@ -1,4 +1,8 @@
 {
   "command_name": "BookIndex",
-  "parameters": "your parameters"
+  "parameters": {
+    "perPage": 1,
+    "page": 1,
+    "authors": ["Dystopian Chronicles","Beyond the Horizon"]
+  }
 }

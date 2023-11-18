@@ -15,7 +15,7 @@ class Request
         $this->request = json_decode(file_get_contents(__DIR__ . '/../' . $commandFilePath));
         switch (strtolower($this->request->command_name)) {
             case('bookindex'):
-                (new BookIndexValidation())->checkValidate($this->request);
+                (new BookIndexValidation())->checkValidate($this);
                 break;
             default:
                 throw new InvalidCommandNameException();
