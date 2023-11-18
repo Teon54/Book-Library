@@ -3,12 +3,14 @@
 namespace App;
 
 use App\Exception\InvalidCommandNameException;
+use App\Exception\InvalidParameters;
 use stdClass;
 
 class Request
 {
     /**
      * @throws InvalidCommandNameException
+     * @throws InvalidParameters
      */
     public function __construct(string $commandFilePath, public ?stdClass $request = null)
     {
