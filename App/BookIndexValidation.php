@@ -17,7 +17,7 @@ class BookIndexValidation implements ValidationInterface
             return is_string($value) ? strtolower($value) : $value;
         }
             , $arrayRequest);
-        $arrayRequest = array_change_key_case($arrayRequest, CASE_LOWER);
+        $arrayRequest = array_change_key_case($arrayRequest);
         $arrayKeysRequest = array_keys($arrayRequest);
         $arrayKeysRequest = array_map(fn($item) => strtolower($item), $arrayKeysRequest);
         if (!is_object($request->request)) {
@@ -52,6 +52,9 @@ class BookIndexValidation implements ValidationInterface
         }
         if (!$arrayRequest['perpage'] || !$arrayRequest['page']) {
             throw new InvalidParameters('Per Page and Page cannot be empty!');
+        }
+        if ($arrayRequest['perpage'] < 0 || $arrayRequest['page'] < 0){
+            throw new InvalidParameters('Error : PerPage and Page must be positive!');
         }
     }
 }
