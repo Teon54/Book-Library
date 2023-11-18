@@ -1,0 +1,16 @@
+{
+    "name": "teon/library-project",
+    "description": "This project implements a Library Storage System, providing functionalities for managing books and authors.",
+    "autoload": {
+        "psr-4": {
+            "Teon\\LibraryProject\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sajjad Mohammadi",
+            "email": "mohammadisajjad54@gmail.com"
+        }
+    ],
+    "require": {}
+}
