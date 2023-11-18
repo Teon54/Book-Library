@@ -18,6 +18,7 @@ class Request
         switch (strtolower($this->request->command_name)) {
             case('bookindex'):
                 (new BookIndexValidation())->checkValidate($this);
+                (new BookIndex())->handle($this);
                 break;
             default:
                 throw new InvalidCommandNameException();
