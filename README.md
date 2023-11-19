@@ -13,9 +13,40 @@ We have 4 different files :
 - Your deadline for the project is until end of the day. 
 
 
-### Command.json
+# Command.json
 This file has two general keys : 1 - command_name  2 - parameters . 
 You are just restricted in two keys. But for values you  are free to design your own system .
+
+## How use Command.json
+Open the command.json file in your preferred text editor.
+Edit the file to include the search parameters:
+```json 
+{
+"command_name": "BookIndex",
+"parameters": {
+"perPage": 10,
+"page": 1,
+"authors": ["Aldous Orson"],
+"titles": ["Brave New World"]
+  }
+} 
+```
+## Explanation of Parameters:
+command_name: Set this as `BookIndex` to initiate the book search process.
+
+### parameters:
+
+- `perPage`: Determines the number of books displayed per page. It should be an integer value.
+- `page`: Specifies the page number of results to display. It should also be an integer value.
+- `authors`: Filters books by author name(s). You can input a single author name or a list of authors.
+- `titles`: Filters books by the selected title(s). You can input a single book title or a list of titles.
+Save the changes made to the command.json file.
+### Usage Guidelines:
+- Pagination: Adjust perPage and page to control the number of books displayed per page and navigate through the results.
+- Filtering by Author or Title: Use the authors key to specify the author's name(s) and the titles key to specify the book title(s) for precise filtering.
+Ensure that the values for perPage and page are integers, and the command_name is exactly set to `BookIndex` to perform the book search.
+
+Save the command.json file after making modifications and run the system to execute the book search based on the provided criteria.
 ## Tasks
 
 ### Task 1: List of All Books
