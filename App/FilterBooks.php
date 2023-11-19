@@ -16,22 +16,37 @@ class FilterBooks
         $resultSearches = [];
         foreach ($parameters as $key => $parameter) {
             if (strtolower($key) === 'authors' || strtolower($key) === 'author') {
-                foreach ($parameter as $author) {
-                    $resultSearch = $this->searchByAuthor($this->booksData, $author);
+                if (is_array($parameter)){
+                    foreach ($parameter as $author) {
+                        $resultSearch = $this->searchByAuthor($this->booksData, $author);
+                        if (!$resultSearch){
+                            continue;
+                        }
+                        array_push($resultSearches,...$resultSearch);
+                    }
+                } else {
+                    $resultSearch = $this->searchByAuthor($this->booksData, $parameter);
                     if (!$resultSearch){
                         continue;
                     }
                     array_push($resultSearches,...$resultSearch);
                 }
-
             }
             if (strtolower($key) === 'titles' || strtolower($key) === 'title') {
-                foreach ($parameter as $title) {
-                    $resultSearch = $this->searchByTitle($this->booksData, $title);
-                    if (!$resultSearch){
+                if (is_array($parameter)) {
+                    foreach ($parameter as $title) {
+                        $resultSearch = $this->searchByTitle($this->booksData, $title);
+                        if (!$resultSearch) {
+                            continue;
+                        }
+                        array_push($resultSearches, ...$resultSearch);
+                    }
+                } else {
+                    $resultSearch = $this->searchByTitle($this->booksData, $parameter);
+                    if (!$resultSearch) {
                         continue;
                     }
-                    array_push($resultSearches,...$resultSearch);
+                    array_push($resultSearches, ...$resultSearch);
                 }
             }
         }

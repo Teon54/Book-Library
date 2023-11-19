@@ -3,6 +3,6 @@
   "parameters": {
     "perPage": 1,
     "page": 1,
-    "authors": ["Aldous Orson","Beyond the Horizon"]
+    "authors": "Aldous Orson"
   }
 }
