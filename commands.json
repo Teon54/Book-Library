@@ -1,8 +1,6 @@
 {
-  "command_name": "BookIndex",
+  "command_name": "GetBook",
   "parameters": {
-    "perPage": 1,
-    "page": 1,
-    "authors": ["Aldous Orson","Eleanor Caulfield"]
+    "ISBN": "978-0679413353"
   }
 }

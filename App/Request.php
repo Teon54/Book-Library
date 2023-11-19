@@ -20,6 +20,10 @@ class Request
                 (new BookIndexValidation())->checkValidate($this);
                 (new BookIndex())->handle($this);
                 break;
+            case('getbook'):
+                (new BookSearchValidation())->checkValidate($this);
+                (new BookSearch())->handle($this);
+                break;
             default:
                 throw new InvalidCommandNameException();
         }
