@@ -13,6 +13,6 @@ class PaginationBooks
             , $arrayRequest);
         $arrayRequest = array_change_key_case($arrayRequest);
         $paginatedBooksData = array_chunk($booksData,$arrayRequest['perpage']);
-        return $arrayRequest['page'] > count($paginatedBooksData) ? null : $paginatedBooksData;
+        return $arrayRequest['page'] > count($paginatedBooksData) ? null : $paginatedBooksData[$arrayRequest['page']];
     }
 }
