@@ -6,12 +6,16 @@ use App\DTO\BookDTO;
 
 trait DisplayBooksTrait
 {
-    public function displayBooks(BookDTO $booksData): void
+    public function displayBooks(?BookDTO $booksData): void
     {
-        foreach ($booksData->bookData as $index => $book) {
-            echo $index . ' :' . '<br>';
-            print_r($book);
-            echo '<br>' . '---------------------------------' . '<br>';
+        if ($booksData === null) {
+            echo 'there is no book!';
+        } else {
+            foreach ($booksData->bookData as $index => $book) {
+                echo $index + 1 . ' :' . '<br>';
+                print_r($book);
+                echo '<br>' . '---------------------------------' . '<br>';
+            }
         }
     }
 }

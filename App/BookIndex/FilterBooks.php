@@ -33,7 +33,6 @@ class FilterBooks
                     $this->handleParameter($parameter, 'searchByTitle', $resultSearches);
                     break;
                 default:
-                    echo 'key : ' . $key . ' not exists';
                     break;
             }
         }

@@ -1,6 +1,13 @@
 {
-  "command_name": "getbook",
+  "command_name": "BookIndex",
   "parameters": {
-    "ISBN": "978-0451524935"
+    "perPage": 4,
+    "page": 2,
+    "authors": [
+      "Aldous Orson"
+    ],
+    "titles": [
+      "The Enigmatic Odyssey"
+    ]
   }
 }
