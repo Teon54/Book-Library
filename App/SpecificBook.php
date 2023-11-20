@@ -6,7 +6,7 @@ use App\DTO\BookDTO;
 
 class SpecificBook
 {
-    use SearchTraits;
+    use SearchTrait;
 
     /**
      * @param array $booksData

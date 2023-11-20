@@ -1,6 +1,13 @@
 {
-  "command_name": "DeleteBook",
+  "command_name": "updatebooks",
   "parameters": {
-    "ISBN": "978-073561967"
+    "search": {
+      "ISBN": "978-0735619678",
+      "title": "Sands of Serenity"
+    },
+    "replace": {
+      "bookTitle": "Inbo Task 5",
+      "publishData": "2023-11-21"
+    }
   }
 }

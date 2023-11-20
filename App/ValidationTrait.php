@@ -9,7 +9,7 @@ trait ValidationTrait
     /**
      * @throws InvalidParameters
      */
-    public function globalValidation(Request $request):array{
+    private function globalValidation(Request $request):array{
         $arrayRequest = get_object_vars($request->request->parameters);
         $arrayRequest = array_map(function ($value) {
             return is_string($value) ? strtolower($value) : $value;

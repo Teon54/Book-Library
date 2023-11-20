@@ -4,18 +4,21 @@ namespace App;
 
 use App\DTO\BookDTO;
 
-class FilterBooks
+class SearchBook
 {
     use SearchTrait;
     use HandleSearchTrait;
 
+    /**
+     * @param array $booksData
+     */
     public function __construct(public array $booksData)
     {
     }
 
     public function filterBooks(Request $request): BookDTO
     {
-        $parameters = $request->request->parameters;
+        $parameters = $request->request->parameters->search;
         $resultSearches = [];
 
         foreach ($parameters as $key => $parameter) {
@@ -28,6 +31,10 @@ class FilterBooks
                 case 'titles':
                 case 'title':
                     $this->handleParameter($parameter, 'searchByTitle', $resultSearches);
+                    break;
+                case 'isbn':
+                case 'isbns':
+                    $this->handleParameter($parameter, 'searchByISBN', $resultSearches);
                     break;
                 default:
                     echo 'key : ' . $key . ' not exists';

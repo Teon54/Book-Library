@@ -2,7 +2,7 @@
 
 namespace App;
 
-trait SearchTraits
+trait SearchTrait
 {
     public function searchByAuthor(array $booksData, string $author): array
     {
