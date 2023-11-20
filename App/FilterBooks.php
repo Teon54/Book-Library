@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\DTO\BookDTO;
+
 class FilterBooks
 {
     use SearchTraits;
@@ -10,7 +12,7 @@ class FilterBooks
     {
     }
 
-    public function filterBooks(Request $request): array
+    public function filterBooks(Request $request): BookDTO
     {
         $parameters = $request->request->parameters;
         $resultSearches = [];
@@ -50,6 +52,6 @@ class FilterBooks
                 }
             }
         }
-        return $resultSearches;
+        return new BookDTO($resultSearches);
     }
 }

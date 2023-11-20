@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\DTO\BookDTO;
+
 class SpecificBook
 {
     use SearchTraits;
@@ -13,9 +15,9 @@ class SpecificBook
     {
     }
 
-    public function filterBooks(Request $request): array
+    public function filterBooks(Request $request): BookDTO
     {
         $parameters = $request->request->parameters;
-        return $this->searchByIsbn($this->booksData, $parameters->ISBN);
+        return new BookDTO($this->searchByIsbn($this->booksData, $parameters->ISBN));
     }
 }

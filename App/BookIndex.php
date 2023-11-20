@@ -14,8 +14,8 @@ class BookIndex implements BookInterface
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
         $booksData = $bookDataJson->add($bookDataCsv);
         $sortedBooksData = (new Sort($booksData->bookData))->sortBooks('ascending');
-        $filteredBooksData = (new FilterBooks($sortedBooksData))->filterBooks($request);
-        $paginatedBooksData = (new PaginationBooks())->getPaginatedBooks($filteredBooksData, $request);
+        $filteredBooksData = (new FilterBooks($sortedBooksData->bookData))->filterBooks($request);
+        $paginatedBooksData = (new PaginationBooks())->getPaginatedBooks($filteredBooksData->bookData, $request);
         var_dump($paginatedBooksData);
     }
 }
