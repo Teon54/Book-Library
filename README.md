@@ -29,9 +29,7 @@ You are just restricted in two keys. But for values you are free to design your 
 - Allow users to choose the number of items per page and filter books by author.
 - Sorting should be based of publish date
 
-#### How to Use command for `Book Search`
-
-To conduct a search for books based on specific criteria, modify the command.json file as follows:
+- To conduct a search for books based on specific criteria, modify the command.json file as follows:
 
 - Open the `command.json` file in your preferred text editor.
 - Edit the file to include the search parameters:
@@ -47,17 +45,17 @@ To conduct a search for books based on specific criteria, modify the command.jso
     } 
     ```
 
-## Explanation of Parameters:
+#### Explanation of Parameters:
 
-command_name: Set this as `BookIndex` to initiate the book search process.
+- command_name: Set this as `BookIndex` to initiate the book search process.
 
-### parameters:
+- `parameters`:
 
-- `perPage`: Determines the number of books displayed per page. It should be an integer value.
-- `page`: Specifies the page number of results to display. It should also be an integer value.
-- `authors`: Filters books by author name(s). You can input a single author name or a list of authors.
-- `titles`: Filters books by the selected title(s). You can input a single book title or a list of titles.
-  Save the changes made to the command.json file.
+    - `perPage`: Determines the number of books displayed per page. It should be an integer value.
+    - `page`: Specifies the page number of results to display. It should also be an integer value.
+    - `authors`: Filters books by author name(s). You can input a single author name or a list of authors.
+    - `titles`: Filters books by the selected title(s). You can input a single book title or a list of titles.
+- Save the changes made to the command.json file.
 
 ### Usage Guidelines:
 
