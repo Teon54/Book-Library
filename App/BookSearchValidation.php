@@ -6,23 +6,14 @@ use App\Exception\InvalidParameters;
 
 class BookSearchValidation implements ValidationInterface
 {
+    use ValidationTrait;
 
     /**
      * @throws InvalidParameters
      */
     public function checkValidate(Request $request): void
     {
-        $arrayRequest = get_object_vars($request->request->parameters);
-        $arrayRequest = array_map(function ($value) {
-            return is_string($value) ? strtolower($value) : $value;
-        }
-            , $arrayRequest);
-        $arrayRequest = array_change_key_case($arrayRequest);
-        $arrayKeysRequest = array_keys($arrayRequest);
-        $arrayKeysRequest = array_map(fn($item) => strtolower($item), $arrayKeysRequest);
-        if (!is_object($request->request)) {
-            throw new InvalidParameters('Error: Your parameter must be an object!');
-        }
+        [$arrayRequest, $arrayKeysRequest] = $this->globalValidation($request);
         if (!in_array('isbn', $arrayKeysRequest)) {
             throw new InvalidParameters(
                 'Error: 1 parameters are required. ("ISBN") ' . implode(
