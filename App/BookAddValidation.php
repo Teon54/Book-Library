@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Exception\FileNotFoundException;
 use App\Exception\InvalidParameters;
 
 class BookAddValidation implements ValidationInterface
@@ -31,8 +32,17 @@ class BookAddValidation implements ValidationInterface
             );
         }
         foreach ($arrayRequest as $key => $value) {
-            if (strtolower($key) === 'paths' & !(is_array($value) || is_string($value))) {
-                throw new InvalidParameters('Error: Paths must be string or array!');
+            if (strtolower($key) === 'paths') {
+                if (!(is_array($value) || is_string($value))){
+                    throw new InvalidParameters('Error: Paths must be string or array!');
+                }
+                if (is_array($value)){
+                    foreach ($value as $filepath){
+                        file_get_contents($filepath);
+                    }
+                } else {
+                    file_get_contents($value);
+                }
             }
         }
     }
