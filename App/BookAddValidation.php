@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Exception\FileNotFoundException;
+use App\Exception\FileException;
 use App\Exception\InvalidParameters;
 
 class BookAddValidation implements ValidationInterface
@@ -11,6 +11,7 @@ class BookAddValidation implements ValidationInterface
 
     /**
      * @throws InvalidParameters
+     * @throws FileException
      */
     public function checkValidate(Request $request): void
     {
@@ -41,6 +42,9 @@ class BookAddValidation implements ValidationInterface
                         file_get_contents($filepath);
                     }
                 } else {
+                    if (str_ends_with($value,'.json') || str_ends_with($value,'.csv')){
+                        throw new FileException('Error: Format file not recognized!');
+                    }
                     file_get_contents($value);
                 }
             }

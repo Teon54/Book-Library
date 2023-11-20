@@ -4,7 +4,7 @@ namespace App\Exception;
 
 use Exception;
 
-class FileNotFoundException extends Exception
+class FileException extends Exception
 {
 
 }
