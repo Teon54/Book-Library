@@ -11,13 +11,15 @@ class IsbnValidation
 
     public function checkValidate(BookDTO $booksData): void
     {
-        foreach ($booksData->bookData as $index => $book)
-        try {
-            Isbn::validateAsEan13(str_replace("-", "", $book->ISBN));
-        }
-        catch (IsbnValidationException $e) {
-            unset($booksData->bookData[$index]);
-            echo $e->getMessage() . '<br>';
+        foreach ($booksData->bookData as $index => $book) {
+            try {
+                Isbn::validateAsEan13(str_replace("-", "", $book->ISBN));
+            } catch (IsbnValidationException $e) {
+                unset($booksData->bookData[$index]);
+                echo $e->getMessage() . ' in object:' . '<br>';
+                print_r($book);
+                echo '<br>' . '-------------------------' . '<br>';
+            }
         }
     }
 }
