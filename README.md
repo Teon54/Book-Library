@@ -57,7 +57,7 @@ You are just restricted in two keys. But for values you are free to design your 
     - `titles`: Filters books by the selected title(s). You can input a single book title or a list of titles.
 - Save the changes made to the command.json file.
 
-### Usage Guidelines:
+#### Usage Guidelines:
 
 - Pagination: Adjust perPage and page to control the number of books displayed per page and navigate through the
   results.
