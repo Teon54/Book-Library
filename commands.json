@@ -1,13 +1,6 @@
 {
-  "command_name": "updatebooks",
+  "command_name": "getbook",
   "parameters": {
-    "search": {
-      "ISBN": "978-0735619678",
-      "title": "Sands of Serenity"
-    },
-    "replace": {
-      "bookTitle": "Inbo Task 5",
-      "publishData": "2023-11-21"
-    }
+    "ISBN": "978-0451524935"
   }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace App;
+namespace App\BookUpdate;
 
 use App\Exception\InvalidParameters;
+use App\Interfaces\ValidationInterface;
+use App\Request;
+use App\Traits\ValidationTrait;
 
 class BookUpdateValidation implements ValidationInterface
 {
@@ -33,7 +36,7 @@ class BookUpdateValidation implements ValidationInterface
         foreach ($arrayRequest as $key => $value) {
             if (strtolower($key) === 'search' & !is_object($value)) {
                 throw new InvalidParameters('Error: search must be object!');
-            } elseif(strtolower($key) === 'replace' & !is_object($value)){
+            } elseif (strtolower($key) === 'replace' & !is_object($value)) {
                 throw new InvalidParameters('Error: replace must be object!');
             }
         }

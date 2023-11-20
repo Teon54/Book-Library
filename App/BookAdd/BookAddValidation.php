@@ -1,9 +1,13 @@
 <?php
 
-namespace App;
+namespace App\BookAdd;
 
 use App\Exception\FileException;
 use App\Exception\InvalidParameters;
+use App\Interfaces\ValidationInterface;
+use App\Request;
+use App\Traits\ValidationTrait;
+
 
 class BookAddValidation implements ValidationInterface
 {
@@ -34,15 +38,15 @@ class BookAddValidation implements ValidationInterface
         }
         foreach ($arrayRequest as $key => $value) {
             if (strtolower($key) === 'paths') {
-                if (!(is_array($value) || is_string($value))){
+                if (!(is_array($value) || is_string($value))) {
                     throw new InvalidParameters('Error: Paths must be string or array!');
                 }
-                if (is_array($value)){
-                    foreach ($value as $filepath){
+                if (is_array($value)) {
+                    foreach ($value as $filepath) {
                         file_get_contents($filepath);
                     }
                 } else {
-                    if (str_ends_with($value,'.json') || str_ends_with($value,'.csv')){
+                    if (str_ends_with($value, '.json') || str_ends_with($value, '.csv')) {
                         throw new FileException('Error: Format file not recognized!');
                     }
                     file_get_contents($value);

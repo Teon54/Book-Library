@@ -1,8 +1,11 @@
 <?php
 
-namespace App;
+namespace App\BookSearch;
 
 use App\Exception\InvalidParameters;
+use App\Interfaces\ValidationInterface;
+use App\Request;
+use App\Traits\ValidationTrait;
 
 class BookSearchValidation implements ValidationInterface
 {

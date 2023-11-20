@@ -1,8 +1,11 @@
 <?php
 
-namespace App;
+namespace App\BookUpdate;
 
 use App\DTO\BookDTO;
+use App\Request;
+use App\Traits\HandleSearchTrait;
+use App\Traits\SearchTrait;
 
 class SearchBook
 {

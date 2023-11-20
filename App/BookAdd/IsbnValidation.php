@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\BookAdd;
 
 use App\DTO\BookDTO;
 use Biblys\Isbn\Isbn;

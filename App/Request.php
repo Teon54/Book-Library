@@ -2,6 +2,16 @@
 
 namespace App;
 
+use App\BookAdd\BookAdd;
+use App\BookAdd\BookAddValidation;
+use App\BookDelete\BookDelete;
+use App\BookDelete\BookDeleteValidation;
+use App\BookIndex\BookIndex;
+use App\BookIndex\BookIndexValidation;
+use App\BookSearch\BookSearch;
+use App\BookSearch\BookSearchValidation;
+use App\BookUpdate\BookUpdate;
+use App\BookUpdate\BookUpdateValidation;
 use App\Exception\FileException;
 use App\Exception\InvalidCommandNameException;
 use App\Exception\InvalidParameters;

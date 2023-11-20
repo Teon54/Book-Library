@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\BookIndex;
 
 use App\DTO\BookDTO;
+use App\Request;
 
 class PaginationBooks
 {

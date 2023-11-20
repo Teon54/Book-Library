@@ -1,13 +1,17 @@
 <?php
 
-namespace App;
+namespace App\BookUpdate;
 
 use App\DTO\CsvFileReader;
 use App\DTO\JsonFileReader;
+use App\Interfaces\BookInterface;
+use App\Request;
+use App\Traits\DisplayBooksTrait;
 
 class BookUpdate implements BookInterface
 {
     use DisplayBooksTrait;
+
     public function handle(Request $request): void
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');

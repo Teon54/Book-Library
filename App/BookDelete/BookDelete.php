@@ -1,9 +1,13 @@
 <?php
 
-namespace App;
+namespace App\BookDelete;
 
+use App\BookSearch\SpecificBook;
 use App\DTO\CsvFileReader;
 use App\DTO\JsonFileReader;
+use App\Interfaces\BookInterface;
+use App\Request;
+use App\Traits\DisplayBooksTrait;
 
 class BookDelete implements BookInterface
 {
@@ -18,7 +22,7 @@ class BookDelete implements BookInterface
         echo count($filteredBooksData->bookData) . ' Item founded: ' . '<br>';
         $this->displayBooks($filteredBooksData);
         $indexBook = null;
-        if (count($filteredBooksData->bookData) > 0){
+        if (count($filteredBooksData->bookData) > 0) {
             $indexBook = array_search($filteredBooksData->bookData, $booksData->bookData);
         }
         unset($booksData->bookData[$indexBook]);

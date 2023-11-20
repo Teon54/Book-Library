@@ -2,8 +2,9 @@
 
 namespace App\DTO;
 
-use App\IsbnValidation;
-use App\TimeStampTrait;
+use App\BookAdd\IsbnValidation;
+use App\Interfaces\FileReaderInterface;
+use App\Traits\TimeStampTrait;
 use stdClass;
 
 class CsvFileReader implements FileReaderInterface

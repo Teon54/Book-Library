@@ -1,9 +1,12 @@
 <?php
 
-namespace App;
+namespace App\BookIndex;
 
 use App\DTO\CsvFileReader;
 use App\DTO\JsonFileReader;
+use App\Interfaces\BookInterface;
+use App\Request;
+use App\Traits\DisplayBooksTrait;
 
 class BookIndex implements BookInterface
 {
