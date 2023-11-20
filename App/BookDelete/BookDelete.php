@@ -23,7 +23,7 @@ class BookDelete implements BookInterface
         $this->displayBooks($filteredBooksData);
         $indexBook = null;
         if (count($filteredBooksData->bookData) > 0) {
-            $indexBook = array_search($filteredBooksData->bookData, $booksData->bookData);
+            $indexBook = array_search($filteredBooksData->bookData[0], $booksData->bookData);
         }
         unset($booksData->bookData[$indexBook]);
         $booksData->bookData = array_values($booksData->bookData);

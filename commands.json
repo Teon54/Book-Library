@@ -1,13 +1,11 @@
 {
-  "command_name": "BookIndex",
+  "command_name": "updatebooks",
   "parameters": {
-    "perPage": 4,
-    "page": 2,
-    "authors": [
-      "Aldous Orson"
-    ],
-    "titles": [
-      "The Enigmatic Odyssey"
-    ]
+    "search": {
+      "authors": ["Harold Jenkins"]
+    },
+    "replace": {
+      "bookTitle": "Hello World"
+    }
   }
 }

@@ -46,7 +46,7 @@ class BookAddValidation implements ValidationInterface
                         file_get_contents($filepath);
                     }
                 } else {
-                    if (str_ends_with($value, '.json') || str_ends_with($value, '.csv')) {
+                    if (!(str_ends_with($value, '.json') || str_ends_with($value, '.csv'))) {
                         throw new FileException('Error: Format file not recognized!');
                     }
                     file_get_contents($value);
