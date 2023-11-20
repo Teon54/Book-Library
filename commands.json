@@ -1,6 +1,6 @@
 {
-  "command_name": "GetBook",
+  "command_name": "AddBook",
   "parameters": {
-    "ISBN": "978-0679413353"
+    "paths": ["database/newbooks.json","database/newbooks.csv"]
   }
 }

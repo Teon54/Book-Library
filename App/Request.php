@@ -24,6 +24,10 @@ class Request
                 (new BookSearchValidation())->checkValidate($this);
                 (new BookSearch())->handle($this);
                 break;
+            case('addbook'):
+                (new BookAddValidation())->checkValidate($this);
+                (new BookAdd())->handle($this);
+                break;
             default:
                 throw new InvalidCommandNameException();
         }

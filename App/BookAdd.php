@@ -2,10 +2,10 @@
 
 namespace App;
 
-class BookAdd
+class BookAdd implements BookInterface
 {
-
-    public function __construct()
+    public function handle(Request $request): void
     {
+
     }
 }
