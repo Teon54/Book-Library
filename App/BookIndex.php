@@ -7,6 +7,7 @@ use App\DTO\JsonFileReader;
 
 class BookIndex implements BookInterface
 {
+    use DisplayBooksTrait;
 
     public function handle(Request $request): void
     {
@@ -16,6 +17,6 @@ class BookIndex implements BookInterface
         $sortedBooksData = (new Sort($booksData->bookData))->sortBooks('ascending');
         $filteredBooksData = (new FilterBooks($sortedBooksData->bookData))->filterBooks($request);
         $paginatedBooksData = (new PaginationBooks())->getPaginatedBooks($filteredBooksData->bookData, $request);
-        var_dump($paginatedBooksData);
+        $this->displayBooks($paginatedBooksData);
     }
 }

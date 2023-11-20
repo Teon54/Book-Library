@@ -7,6 +7,8 @@ use App\DTO\JsonFileReader;
 
 class BookAdd implements BookInterface
 {
+    use DisplayBooksTrait;
+
     public function handle(Request $request): void
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
@@ -29,6 +31,6 @@ class BookAdd implements BookInterface
             }
         }
 
-        var_dump($bookDataJson);
+        $this->displayBooks($bookDataJson);
     }
 }

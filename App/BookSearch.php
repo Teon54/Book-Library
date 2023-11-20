@@ -7,6 +7,7 @@ use App\DTO\JsonFileReader;
 
 class BookSearch implements BookInterface
 {
+    use DisplayBooksTrait;
 
     public function handle(Request $request): void
     {
@@ -14,6 +15,6 @@ class BookSearch implements BookInterface
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
         $booksData = $bookDataJson->add($bookDataCsv);
         $filteredBooksData = (new SpecificBook($booksData->bookData))->filterBooks($request);
-        var_dump($filteredBooksData);
+        $this->displayBooks($filteredBooksData);
     }
 }
