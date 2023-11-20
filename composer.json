@@ -12,5 +12,7 @@
             "email": "mohammadisajjad54@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "biblys/isbn": "~3.0"
+    }
 }

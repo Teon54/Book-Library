@@ -2,6 +2,7 @@
 
 namespace App\DTO;
 
+use App\IsbnValidation;
 use App\TimeStampTrait;
 
 class JsonFileReader implements FileReaderInterface
@@ -10,6 +11,8 @@ class JsonFileReader implements FileReaderInterface
     public function getData(string $filePath): BookDTO
     {
         $booksData = json_decode(file_get_contents(__DIR__ . "/../../" . $filePath))->books;
-        return new BookDTO($this->getTimeStampedArray($booksData));
+        $booksDataDTO = new BookDTO($this->getTimeStampedArray($booksData));
+        (new IsbnValidation())->checkValidate($booksDataDTO);
+        return $booksDataDTO;
     }
 }

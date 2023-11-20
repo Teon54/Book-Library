@@ -2,6 +2,7 @@
 
 namespace App\DTO;
 
+use App\IsbnValidation;
 use App\TimeStampTrait;
 use stdClass;
 
@@ -27,6 +28,8 @@ class CsvFileReader implements FileReaderInterface
         }
 
         fclose($file);
-        return new BookDTO($this->getTimeStampedArray($dataObjects));
+        $booksDataDTO = new BookDTO($this->getTimeStampedArray($dataObjects));
+        (new IsbnValidation())->checkValidate($booksDataDTO);
+        return $booksDataDTO;
     }
 }
