@@ -30,6 +30,10 @@ class Request
                 (new BookAddValidation())->checkValidate($this);
                 (new BookAdd())->handle($this);
                 break;
+            case('deletebook'):
+                (new BookDeleteValidation())->checkValidate($this);
+                (new BookDelete())->handle($this);
+                break;
             default:
                 throw new InvalidCommandNameException();
         }

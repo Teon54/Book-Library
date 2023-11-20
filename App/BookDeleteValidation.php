@@ -2,10 +2,6 @@
 
 namespace App;
 
-class BookDeleteValidation
+class BookDeleteValidation extends BookSearchValidation
 {
-
-    public function __construct()
-    {
-    }
 }

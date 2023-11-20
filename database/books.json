@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "ISBN": "978-1451635626",
+      "ISBN": "978-1234567897",
       "bookTitle": "Dystopian Chronicles",
       "authorName": "Aldous Orson",
       "pagesCount": 412,
@@ -29,21 +29,21 @@
       "publishDate": "1995-07-04"
     },
     {
-      "ISBN": "978-0307594005",
+      "ISBN": "978-8971417300",
       "bookTitle": "Whispers in the Dark",
       "authorName": "Eleanor Caulfield",
       "pagesCount": 398,
       "publishDate": "1984-10-15"
     },
     {
-      "ISBN": "978-0679413353",
+      "ISBN": "978-5681330776",
       "bookTitle": "Echoes of Eternity",
       "authorName": "Christopher Redwood",
       "pagesCount": 512,
       "publishDate": "1967-06-28"
     },
     {
-      "ISBN": "978-0141984635",
+      "ISBN": "978-7493973462",
       "bookTitle": "The Animus Paradox",
       "authorName": "Isabella Orwell",
       "pagesCount": 242,
@@ -57,7 +57,7 @@
       "publishDate": "1999-02-18"
     },
     {
-      "ISBN": "978-1451673315",
+      "ISBN": "978-1749348288",
       "bookTitle": "Ephemeral Horizons",
       "authorName": "Penelope Frost",
       "pagesCount": 189,
