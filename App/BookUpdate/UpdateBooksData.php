@@ -22,7 +22,9 @@ class UpdateBooksData
         $parameters = $request->request->parameters->replace;
         foreach ($parameters as $key => $value) {
             foreach ($this->bookData as $book) {
-                if (in_array($key, array_keys(get_object_vars($book)))) {
+                if ($key == 'ISBN') {
+                    echo 'ISBN cannot be change!' . '<br>';
+                } elseif (in_array($key, array_keys(get_object_vars($book)))) {
                     $book->$key = $value;
                 } else {
                     echo $key . ' not exists' . '<br>';
