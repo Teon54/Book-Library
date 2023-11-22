@@ -9,16 +9,16 @@ The system is designed to handle complex tasks related to book management in a l
 - Clone the Repository:
 
   ```git
-  git clone <repository_url>
+  git clone [<repository_url>]
   ```
 - Navigate to the Project Directory:
 
   ```git
-  cd <project_directory>
+  cd [<project_directory>]
   ```
 - Install Dependencies:
 
-  -Before running the application, make sure to install the necessary dependencies using Composer:
+  - Before running the application, make sure to install the necessary dependencies using Composer:
 
   ```git
   composer install
