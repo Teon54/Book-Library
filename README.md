@@ -9,12 +9,12 @@ The system is designed to handle complex tasks related to book management in a l
 - Clone the Repository:
 
   ```git
-  git clone [<repository_url>]
+  git clone https://github.com/Teon54/Book-Library
   ```
 - Navigate to the Project Directory:
 
   ```git
-  cd [<project_directory>]
+  cd Book-Library
   ```
 - Install Dependencies:
 
