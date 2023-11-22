@@ -1,11 +1,9 @@
 {
-  "command_name": "updatebooks",
+  "command_name": "AddBook",
   "parameters": {
-    "search": {
-      "authors": ["Harold Jenkins"]
-    },
-    "replace": {
-      "ISBN": "Hello World"
-    }
+    "paths": [
+      "database/newbooks.json",
+      "database/cnewbooks.csv"
+    ]
   }
 }
