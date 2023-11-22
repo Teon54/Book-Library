@@ -3,6 +3,40 @@
 This project implements a Library Storage System, providing functionalities for managing books and authors.\
 The system is designed to handle complex tasks related to book management in a library.
 
+## Installation Guide
+- To start using this software, follow these steps:
+
+- Clone the Repository:
+
+  ```git
+  git clone <repository_url>
+  ```
+- Navigate to the Project Directory:
+
+  ```git
+  cd <project_directory>
+  ```
+- Install Dependencies:
+
+  -Before running the application, make sure to install the necessary dependencies using Composer:
+
+  ```git
+  composer install
+  ```
+  - This command will install all the required libraries and packages for the application.
+
+- Configure the Environment:
+
+  - Set up any necessary configuration files or environment variables as specified in the documentation.
+
+- Run the Application:
+
+  - Once the dependencies are installed and the environment is configured:
+  ```git
+  php index.php
+  ```
+  - This command will start the application.
+
 ## Pre Knowledge
 
 We have 4 different files :
