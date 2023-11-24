@@ -8,7 +8,7 @@ use App\Request;
 class PaginationBooks
 {
 
-    public function getPaginatedBooks(array $booksData, Request $request): ?BookDTO
+    public function getPaginatedBooks(array $booksData, Request $request): ?array
     {
         $arrayRequest = get_object_vars($request->request->parameters);
         $arrayRequest = array_map(function ($value) {
@@ -20,7 +20,7 @@ class PaginationBooks
         if ($arrayRequest['page'] - 1 >= count($paginatedBooksData)) {
             return null;
         } else {
-            return new BookDTO($paginatedBooksData[$arrayRequest['page'] - 1]);
+            return $paginatedBooksData[$arrayRequest['page'] - 1];
         }
     }
 }

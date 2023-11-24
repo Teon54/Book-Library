@@ -2,14 +2,13 @@
 
 namespace App\BookAdd;
 
-use App\DTO\BookDTO;
 use Biblys\Isbn\Isbn;
 use Biblys\Isbn\IsbnValidationException;
 
 class IsbnValidation
 {
 
-    public function checkValidate(array $booksData): void
+    public function checkValidate(array &$booksData): void
     {
         foreach ($booksData as $index => $book) {
             try {

@@ -19,7 +19,7 @@ class SearchBook
     {
     }
 
-    public function filterBooks(Request $request): BookDTO
+    public function filterBooks(Request $request): array
     {
         $parameters = $request->request->parameters->search;
         $resultSearches = [];
@@ -45,6 +45,6 @@ class SearchBook
             }
         }
 
-        return new BookDTO($resultSearches);
+        return $resultSearches;
     }
 }

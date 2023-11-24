@@ -16,11 +16,10 @@ class FilterBooks
     {
     }
 
-    public function filterBooks(Request $request): BookDTO
+    public function filterBooks(Request $request): array
     {
         $parameters = $request->request->parameters;
         $resultSearches = [];
-
         foreach ($parameters as $key => $parameter) {
             $lowerKey = strtolower($key);
             switch ($lowerKey) {
@@ -36,7 +35,6 @@ class FilterBooks
                     break;
             }
         }
-
-        return new BookDTO($resultSearches);
+        return empty($resultSearches) ? $this->booksData : $resultSearches;
     }
 }

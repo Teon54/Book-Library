@@ -17,16 +17,16 @@ class BookDelete implements BookInterface
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
-        $booksData = $bookDataJson->add($bookDataCsv);
-        $filteredBooksData = (new SpecificBook($booksData->bookData))->filterBooks($request);
-        echo count($filteredBooksData->bookData) . ' Item founded: ' . '<br>';
+        $booksData = array_merge($bookDataJson, $bookDataCsv);
+        $filteredBooksData = (new SpecificBook($booksData))->filterBooks($request);
+        echo count($filteredBooksData) . ' Item deleted: ' . '<br>';
         $this->displayBooks($filteredBooksData);
         $indexBook = null;
-        if (count($filteredBooksData->bookData) > 0) {
-            $indexBook = array_search($filteredBooksData->bookData[0], $booksData->bookData);
+        if (count($filteredBooksData) > 0) {
+            $indexBook = array_search($filteredBooksData[0], $booksData);
         }
-        unset($booksData->bookData[$indexBook]);
-        $booksData->bookData = array_values($booksData->bookData);
+        unset($booksData[$indexBook]);
+        $booksData = array_values($booksData);
         $this->displayBooks($booksData);
     }
 }

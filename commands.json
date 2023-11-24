@@ -2,8 +2,7 @@
   "command_name": "AddBook",
   "parameters": {
     "paths": [
-      "database/newbooks.json",
-      "database/cnewbooks.csv"
+      "database/newbooks.json"
     ]
   }
 }

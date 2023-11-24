@@ -16,8 +16,8 @@ class BookSearch implements BookInterface
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
-        $booksData = $bookDataJson->add($bookDataCsv);
-        $filteredBooksData = (new SpecificBook($booksData->bookData))->filterBooks($request);
+        $booksData = array_merge($bookDataJson,$bookDataCsv);
+        $filteredBooksData = (new SpecificBook($booksData))->filterBooks($request);
         $this->displayBooks($filteredBooksData);
     }
 }

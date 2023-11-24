@@ -17,9 +17,9 @@ class SpecificBook
     {
     }
 
-    public function filterBooks(Request $request): BookDTO
+    public function filterBooks(Request $request): array
     {
         $parameters = $request->request->parameters;
-        return new BookDTO($this->searchByIsbn($this->booksData, $parameters->ISBN));
+        return $this->searchByIsbn($this->booksData, $parameters->ISBN);
     }
 }

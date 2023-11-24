@@ -15,26 +15,25 @@ class BookAdd implements BookInterface
 
     public function handle(Request $request): void
     {
-        $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
-        $bookDataJson->add($bookDataCsv);
+        $bookDataJson = (new JsonFileReader())->getData('database/books.json');
+        $booksData = array_merge($bookDataJson, $bookDataCsv);
         $paths = $request->request->parameters->paths;
         if (is_array($paths)) {
             foreach ($paths as $file) {
                 if (str_ends_with($file, '.json')) {
-                    $bookDataJson->add((new JsonFileReader())->getData($file));
+                    $booksData = array_merge($booksData, (new JsonFileReader())->getData($file));
                 } elseif (str_ends_with($file, '.csv')) {
-                    $bookDataJson->add((new CsvFileReader())->getData($file));
+                    $booksData = array_merge($booksData, (new CsvFileReader())->getData($file));
                 }
             }
         } elseif (is_string($paths)) {
             if (str_ends_with($paths, '.json')) {
-                $bookDataJson->add((new JsonFileReader())->getData($paths));
+                $booksData = array_merge($booksData, (new JsonFileReader())->getData($paths));
             } elseif (str_ends_with($paths, '.csv')) {
-                $bookDataJson->add((new CsvFileReader())->getData($paths));
+                $booksData = array_merge($booksData, (new CsvFileReader())->getData($paths));
             }
         }
-
-        $this->displayBooks($bookDataJson);
+        $this->displayBooks($booksData);
     }
 }

@@ -16,9 +16,9 @@ class BookUpdate implements BookInterface
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
-        $booksData = $bookDataJson->add($bookDataCsv);
-        $filteredBooksData = (new SearchBook($booksData->bookData))->filterBooks($request);
-        $updatedBooksData = (new UpdateBooksData($filteredBooksData->bookData))->updateBooks($request);
+        $booksData = array_merge($bookDataJson, $bookDataCsv);
+        $filteredBooksData = (new SearchBook($booksData))->filterBooks($request);
+        $updatedBooksData = (new UpdateBooksData($filteredBooksData))->updateBooks($request);
         $this->displayBooks($updatedBooksData);
     }
 }
