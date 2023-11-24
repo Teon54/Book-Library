@@ -16,10 +16,10 @@ class BookIndex implements BookInterface
     {
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
-        $booksData = $bookDataJson->add($bookDataCsv);
-        $sortedBooksData = (new Sort($booksData->bookData))->sortBooks('ascending');
-        $filteredBooksData = (new FilterBooks($sortedBooksData->bookData))->filterBooks($request);
-        $paginatedBooksData = (new PaginationBooks())->getPaginatedBooks($filteredBooksData->bookData, $request);
+        $booksData = array_merge($bookDataJson, $bookDataCsv);
+        $sortedBooksData = (new DateSorter($booksData))->sortBooks('ascending');
+        $filteredBooksData = (new FilterBooks($sortedBooksData))->filterBooks($request);
+        $paginatedBooksData = (new PaginationBooks())->getPaginatedBooks($filteredBooksData, $request);
         $this->displayBooks($paginatedBooksData);
     }
 }

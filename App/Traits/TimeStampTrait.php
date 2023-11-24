@@ -6,14 +6,8 @@ use DateTime;
 
 trait TimeStampTrait
 {
-    public function getTimeStampedArray($booksData): array
+    public function getTimeStampedDate(string $stringDate): DateTime
     {
-        foreach ($booksData as $book) {
-            if ($book->publishDate instanceof DateTime) {
-                continue;
-            }
-            $book->publishDate = (new DateTime())->setTimestamp((strtotime($book->publishDate)));
-        }
-        return $booksData;
+        return (new DateTime())->setTimestamp((strtotime($stringDate)));
     }
 }
