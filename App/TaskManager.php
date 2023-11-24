@@ -12,17 +12,17 @@ use App\BookSearch\BookSearch;
 use App\BookSearch\BookSearchValidation;
 use App\BookUpdate\BookUpdate;
 use App\BookUpdate\BookUpdateValidation;
-use App\Exception\FileException;
 use App\Exception\InvalidCommandNameException;
 use App\Exception\InvalidParameters;
 
 class TaskManager
 {
     public Request $request;
+
     public function __construct(string $commandFilePath)
     {
         $commandFileContent = json_decode(file_get_contents(__DIR__ . '/../' . $commandFilePath));
-        $this->request = new Request($commandFileContent->command_name,$commandFileContent->parameters);
+        $this->request = new Request($commandFileContent->command_name, $commandFileContent->parameters);
     }
 
     /**
