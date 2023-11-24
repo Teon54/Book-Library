@@ -28,7 +28,6 @@ class TaskManager
     /**
      * @throws InvalidCommandNameException
      * @throws InvalidParameters
-     * @throws FileException
      */
     public function manageTask(): void
     {
