@@ -2,8 +2,6 @@
 
 namespace App\Traits;
 
-use App\DTO\BookDTO;
-
 trait DisplayBooksTrait
 {
     public function displayBooks(?array $booksData): void

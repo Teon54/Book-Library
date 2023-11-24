@@ -5,7 +5,7 @@ namespace App\BookIndex;
 use App\DTO\BookDTO;
 use App\Request;
 
-class PaginationBooks
+class Pagination
 {
 
     public function getPaginatedBooks(array $booksData, Request $request): ?array
