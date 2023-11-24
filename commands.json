@@ -1,9 +1,14 @@
 {
   "command_name": "AddBook",
   "parameters": {
-    "paths": [
-      "database/newbooks.json",
-      "database/cnewbooks.csv"
+    "books": [
+      {
+        "ISBN": "978-1451255126",
+        "bookTitle": "Hello Csv",
+        "authorName": "Sajjad Mohammadi",
+        "pagesCount": 5,
+        "publishDate": "2023-11-20"
+      }
     ]
   }
 }

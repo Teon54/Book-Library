@@ -17,7 +17,8 @@ class BookIndexValidation implements ValidationInterface
     public function checkValidate(Request $request): void
     {
         [$arrayRequest, $arrayKeysRequest] = $this->globalValidation($request);
-        if (!(in_array('perpage', $arrayKeysRequest) & in_array('page', $arrayKeysRequest))) {
+
+        if (!in_array('perpage', $arrayKeysRequest) || !in_array('page', $arrayKeysRequest)) {
             throw new InvalidParameters(
                 'Error: 2 parameters are required. ("perPage" and "page") ' . implode(
                     ",",
@@ -26,7 +27,7 @@ class BookIndexValidation implements ValidationInterface
             );
         }
 
-        if (count($arrayKeysRequest) === 3 & !(in_array('author', $arrayKeysRequest) || in_array(
+        if (count($arrayKeysRequest) === 3 && !(in_array('author', $arrayKeysRequest) || in_array(
                     'authors',
                     $arrayKeysRequest
                 ) || in_array('title', $arrayKeysRequest) || in_array('titles', $arrayKeysRequest))) {
@@ -34,14 +35,16 @@ class BookIndexValidation implements ValidationInterface
                 'Error: Optional parameters are authors and titles ("authors" and "titles" or "author" and "title")'
             );
         }
-        if (count($arrayKeysRequest) === 4 & !((in_array('author', $arrayKeysRequest) || in_array(
+
+        if (count($arrayKeysRequest) === 4 && !((in_array('author', $arrayKeysRequest) || in_array(
                         'authors',
                         $arrayKeysRequest
-                    )) & (in_array('title', $arrayKeysRequest) || in_array('titles', $arrayKeysRequest)))) {
+                    )) && (in_array('title', $arrayKeysRequest) || in_array('titles', $arrayKeysRequest)))) {
             throw new InvalidParameters(
                 'Error: Optional parameters are authors and titles ("authors" and "titles" or "author" and "title")'
             );
         }
+
         if (count($arrayKeysRequest) > 4) {
             throw new InvalidParameters(
                 'Error: 2 parameters are required. ("perPage" and "page") and 2 parameters are optional ' . count(
@@ -49,6 +52,22 @@ class BookIndexValidation implements ValidationInterface
                 ) . ' Given!'
             );
         }
+
+        if (empty($arrayRequest['perpage']) || empty($arrayRequest['page'])) {
+            throw new InvalidParameters('Per Page and Page cannot be empty!');
+        }
+
+        if ($arrayRequest['perpage'] < 0 || $arrayRequest['page'] < 0) {
+            throw new InvalidParameters('Error : PerPage and Page must be positive!');
+        }
+        $this->checkType($arrayRequest);
+    }
+
+    /**
+     * @throws InvalidParameters
+     */
+    private function checkType($arrayRequest): void
+    {
         foreach ($arrayRequest as $key => $value) {
             if (strtolower($key) === 'perpage' & !is_int($value)) {
                 throw new InvalidParameters('Error: Per Page must be integer!');
@@ -66,12 +85,6 @@ class BookIndexValidation implements ValidationInterface
                     ))) {
                 throw new InvalidParameters('Error: titles must be string or array!');
             }
-        }
-        if (!$arrayRequest['perpage'] || !$arrayRequest['page']) {
-            throw new InvalidParameters('Per Page and Page cannot be empty!');
-        }
-        if ($arrayRequest['perpage'] < 0 || $arrayRequest['page'] < 0) {
-            throw new InvalidParameters('Error : PerPage and Page must be positive!');
         }
     }
 }

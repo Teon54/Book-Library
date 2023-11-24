@@ -2,6 +2,12 @@
 
 require_once 'vendor/autoload.php';
 
-use App\Request;
+use App\Exception\InvalidCommandNameException;
+use App\Exception\InvalidParameters;
+use App\TaskManager;
 
-new Request('commands.json');
+try {
+    (new TaskManager('commands.json'))->manageTask();
+} catch (InvalidCommandNameException|InvalidParameters $e) {
+    echo $e->getMessage();
+}
