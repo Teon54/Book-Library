@@ -12,25 +12,21 @@ class CsvFileReader implements FileReaderInterface
 
     use TimeStampTrait;
 
-    public function getData(string $filePath): BookDTO
+    public function getData(string $filePath): array
     {
         $file = fopen("./" . $filePath, 'r');
         $columnTitles = fgetcsv($file);
-        $dataObjects = array();
+        $booksDTO = [];
 
         while ($data = fgetcsv($file)) {
-            $dataObject = new stdClass();
-
+            $book = new stdClass();
             foreach ($columnTitles as $index => $title) {
-                $dataObject->$title = $data[$index];
+                $book->$title = $data[$index];
             }
-
-            $dataObjects[] = $dataObject;
+            $booksDTO[] = new BookDTO($book->ISBN,$book->bookTitle,$book->authorName,$book->pagesCount,$this->getTimeStampedDate($book->publishDate));
         }
-
         fclose($file);
-        $booksDataDTO = new BookDTO($this->getTimeStampedArray($dataObjects));
-        (new IsbnValidation())->checkValidate($booksDataDTO);
-        return $booksDataDTO;
+        (new IsbnValidation())->checkValidate($booksDTO);
+        return $booksDTO;
     }
 }
