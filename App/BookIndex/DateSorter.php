@@ -4,7 +4,7 @@ namespace App\BookIndex;
 
 use App\DTO\BookDTO;
 
-class Sort
+class DateSorter
 {
     public function __construct(public array $booksData, public ?string $typeSort = 'ascending')
     {
@@ -16,11 +16,11 @@ class Sort
         return $this->typeSort === 'ascending' ? $result : -1 * $result;
     }
 
-    public function sortBooks(string $typeSort): BookDTO
+    public function sortBooks(string $typeSort): array
     {
         $tempArray = $this->booksData;
         $this->typeSort = $typeSort;
         usort($tempArray, [$this, 'compare']);
-        return new BookDTO($tempArray);
+        return $tempArray;
     }
 }
