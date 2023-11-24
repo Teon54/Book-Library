@@ -2,7 +2,6 @@
 
 namespace App\BookUpdate;
 
-use App\DTO\BookDTO;
 use App\Request;
 use App\Traits\HandleSearchTrait;
 use App\Traits\SearchTrait;
@@ -21,7 +20,7 @@ class SearchBook
 
     public function filterBooks(Request $request): array
     {
-        $parameters = $request->request->parameters->search;
+        $parameters = $request->parameters->search;
         $resultSearches = [];
 
         foreach ($parameters as $key => $parameter) {

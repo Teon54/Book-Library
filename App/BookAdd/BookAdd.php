@@ -18,7 +18,7 @@ class BookAdd implements BookInterface
         $bookDataCsv = (new CsvFileReader())->getData('database/books.csv');
         $bookDataJson = (new JsonFileReader())->getData('database/books.json');
         $booksData = array_merge($bookDataJson, $bookDataCsv);
-        $paths = $request->request->parameters->paths;
+        $paths = $request->parameters->paths;
         if (is_array($paths)) {
             foreach ($paths as $file) {
                 if (str_ends_with($file, '.json')) {

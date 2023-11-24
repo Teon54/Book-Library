@@ -2,7 +2,6 @@
 
 namespace App\BookUpdate;
 
-use App\DTO\BookDTO;
 use App\Request;
 use App\Traits\TimeStampTrait;
 
@@ -19,7 +18,7 @@ class UpdateBooksData
 
     public function updateBooks(Request $request): array
     {
-        $parameters = $request->request->parameters->replace;
+        $parameters = $request->parameters->replace;
         foreach ($parameters as $key => $value) {
             foreach ($this->bookData as $book) {
                 if ($key == 'ISBN') {
