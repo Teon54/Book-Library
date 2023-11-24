@@ -147,19 +147,23 @@ To add one or multiple new books to the system through batch upload, follow thes
 
 - Open the command.json file in your preferred text editor.
 
-- Configure the file to include the paths to the JSON or CSV file(s) containing the new books' information:
+  - Configure the file to include the paths to the JSON or CSV file(s) containing the new books' information:
 
-- ```json 
+  - ```json 
     {
-  "command_name": "AddBook",
-  "parameters": {
-    "paths": [
-      "database/newbooks.json",
-      "database/more_new_books.csv"
-    ]
-   }
-  }
-
+      "command_name": "AddBook",
+      "parameters": {
+        "books": [
+          {
+            "ISBN": "978-1451255126",
+            "bookTitle": "Hello CSV",
+            "authorName": "Sajjad Mohammadi",
+            "pagesCount": 150,
+            "publishDate": "2023-11-20"
+          }
+        ]
+      }
+    }
     ```
 
 #### Explanation of Parameters:
@@ -167,9 +171,12 @@ To add one or multiple new books to the system through batch upload, follow thes
 - `command_name`: Set this as `AddBook` to trigger the process of adding new books to the system.
 
 - `parameters`:
-    - `paths`: Specify the path(s) to the JSON or CSV file(s) containing information about the new book(s). You can
-      provide multiple file paths as an array.
-
+    - `books`: An array containing details of the book(s) to be added.
+      - `ISBN`: The ISBN-13 of the book.
+      - `bookTitle`: The title of the book.
+      - `authorName`: The name of the author.
+      - `pagesCount`: The count of pages in the book.
+      - `publishDate`:The publication date of the book (in YYYY-MM-DD format).
 - Save the changes made to the command.json file.
 
 #### Usage Guidelines:
