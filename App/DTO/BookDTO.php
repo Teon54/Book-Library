@@ -2,6 +2,8 @@
 
 namespace App\DTO;
 
+use DateTime;
+
 class BookDTO
 {
     public function __construct(
@@ -9,7 +11,7 @@ class BookDTO
         public string $bookTitle,
         public string $authorName,
         public int $pagesCount,
-        public string $publishDate
+        public DateTime $publishDate
     ) {
     }
 }
