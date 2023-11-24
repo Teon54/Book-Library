@@ -2,7 +2,6 @@
 
 namespace App\BookIndex;
 
-use App\DTO\BookDTO;
 use App\Request;
 
 class Pagination
@@ -10,7 +9,7 @@ class Pagination
 
     public function getPaginatedBooks(array $booksData, Request $request): ?array
     {
-        $arrayRequest = get_object_vars($request->request->parameters);
+        $arrayRequest = get_object_vars($request->parameters);
         $arrayRequest = array_map(function ($value) {
             return is_string($value) ? strtolower($value) : $value;
         }
