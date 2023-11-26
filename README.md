@@ -62,7 +62,6 @@ You are just restricted in two keys. But for values you are free to design your 
 - Implement a paginated, filterable, and sortable list of all registered books.
 - Allow users to choose the number of items per page and filter books by author.
 - Sorting should be based of publish date
-
 - To conduct a search for books based on specific criteria, modify the command.json file as follows:
 
 - Open the `command.json` file in your preferred text editor.
@@ -150,20 +149,20 @@ To add one or multiple new books to the system through batch upload, follow thes
     - Configure the file to include the paths to the JSON or CSV file(s) containing the new books' information:
 
     - ```json 
-    {
-      "command_name": "AddBook",
-      "parameters": {
-        "books": [
-          {
-            "ISBN": "978-1451255126",
-            "bookTitle": "Hello CSV",
-            "authorName": "Sajjad Mohammadi",
-            "pagesCount": 150,
-            "publishDate": "2023-11-20"
-          }
-        ]
-      }
-    }
+  {
+  "command_name": "AddBook",
+  "parameters": {
+  "books": [
+  {
+  "ISBN": "978-1451255126",
+  "bookTitle": "Hello CSV",
+  "authorName": "Sajjad Mohammadi",
+  "pagesCount": 150,
+  "publishDate": "2023-11-20"
+  }
+  ]
+  }
+  }
     ```
 
 #### Explanation of Parameters:
