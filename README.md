@@ -4,10 +4,10 @@ This project implements a Library Storage System, providing functionalities for 
 The system is designed to handle complex tasks related to book management in a library.
 
 ## Installation Guide
+
 - To start using this software, follow these steps:
 
 - Clone the Repository:
-
   ```git
   git clone https://github.com/Teon54/Book-Library
   ```
@@ -18,24 +18,24 @@ The system is designed to handle complex tasks related to book management in a l
   ```
 - Install Dependencies:
 
-  - Before running the application, make sure to install the necessary dependencies using Composer:
+    - Before running the application, make sure to install the necessary dependencies using Composer:
 
   ```git
   composer install
   ```
-  - This command will install all the required libraries and packages for the application.
+    - This command will install all the required libraries and packages for the application.
 
 - Configure the Environment:
 
-  - Set up any necessary configuration files or environment variables as specified in the documentation.
+    - Set up any necessary configuration files or environment variables as specified in the documentation.
 
 - Run the Application:
 
-  - Once the dependencies are installed and the environment is configured:
+    - Once the dependencies are installed and the environment is configured:
   ```git
   php index.php
   ```
-  - This command will start the application.
+    - This command will start the application.
 
 ## Pre Knowledge
 
@@ -147,9 +147,9 @@ To add one or multiple new books to the system through batch upload, follow thes
 
 - Open the command.json file in your preferred text editor.
 
-  - Configure the file to include the paths to the JSON or CSV file(s) containing the new books' information:
+    - Configure the file to include the paths to the JSON or CSV file(s) containing the new books' information:
 
-  - ```json 
+    - ```json 
     {
       "command_name": "AddBook",
       "parameters": {
@@ -172,11 +172,11 @@ To add one or multiple new books to the system through batch upload, follow thes
 
 - `parameters`:
     - `books`: An array containing details of the book(s) to be added.
-      - `ISBN`: The ISBN-13 of the book.
-      - `bookTitle`: The title of the book.
-      - `authorName`: The name of the author.
-      - `pagesCount`: The count of pages in the book.
-      - `publishDate`:The publication date of the book (in YYYY-MM-DD format).
+        - `ISBN`: The ISBN-13 of the book.
+        - `bookTitle`: The title of the book.
+        - `authorName`: The name of the author.
+        - `pagesCount`: The count of pages in the book.
+        - `publishDate`:The publication date of the book (in YYYY-MM-DD format).
 - Save the changes made to the command.json file.
 
 #### Usage Guidelines:
